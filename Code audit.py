@@ -820,7 +820,7 @@ def load_rules(rule_file):
 
 def scan_code(php_code, rules, file_path):
     vulnerabilities = []
-    lines_with_vulnerabilities = set()  # Track line numbers with vulnerabilities
+    lines_with_vulnerabilities = set()  
     for rule in rules:
         if 'only-regex' in rule:
             vulns, vuln_lines = only_regex_match(php_code, rule, file_path)
