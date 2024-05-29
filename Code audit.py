@@ -916,7 +916,7 @@ def is_tainted(param):
 
 def scan_file(file_path, rules):
     vulnerabilities = []
-    lines_with_vulnerabilities = set()  # Track line numbers with vulnerabilities
+    lines_with_vulnerabilities = set()  
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
         php_code = file.read()
         vulns, vuln_lines = scan_code(php_code, rules, file_path)
@@ -928,7 +928,7 @@ def scan_file(file_path, rules):
 def scan_directory(directory, rules):
     vulnerabilities = []
     max_workers = min(2 * os.cpu_count(), 80)
-    lines_with_vulnerabilities = {}  # Track line numbers with vulnerabilities for each file
+    lines_with_vulnerabilities = {}  
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = []
         for root, _, files in os.walk(directory):
