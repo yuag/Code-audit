@@ -793,9 +793,9 @@ class Ui_MainWindow(object):
         directory = QtWidgets.QFileDialog.getExistingDirectory(None, "选择扫描目录")
         if directory:
             self.listWidget.addItem(f"扫描目录: {directory}")
-            vulnerabilities, lines_with_vulnerabilities = scan_directory(directory, self.rules)  # Modified line
+            vulnerabilities, lines_with_vulnerabilities = scan_directory(directory, self.rules)  
             if vulnerabilities:
-                export_to_html(vulnerabilities, lines_with_vulnerabilities, 'dm.html')  # Modified line
+                export_to_html(vulnerabilities, lines_with_vulnerabilities, 'dm.html')  
                 self.listWidget.addItem("扫描完成，漏洞报告已导出为 dm.html")
                 self.listWidget.addItem(f"发现漏洞数量: {len(vulnerabilities)}")
             else:
