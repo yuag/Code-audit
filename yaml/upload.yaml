@@ -1,0 +1,25 @@
+rules:
+  - name: PHP File Upload Function
+    description: 检测是否存在 PHP 文件上传函数。
+    only-regex:
+      pattern: '(move_uploaded_file|copy|file_put_contents)\s*\('
+
+  - name: Unsanitized File Path
+    description: 检测是否存在未经过滤的文件路径。
+    only-regex:
+      pattern: '\$_FILES\['
+
+  - name: Insufficient File Type Validation
+    description: 检测是否存在不足够的文件类型验证。
+    only-regex:
+      pattern: '(mime_content_type|getimagesize)\s*\('
+
+  - name: Lack of File Size Limitation
+    description: 检测是否存在文件大小限制。
+    only-regex:
+      pattern: '\$_FILES\[.*?\]\[size\]'
+
+  - name: No File Upload Token
+    description: 检测是否存在缺少文件上传令牌的情况。
+    only-regex:
+      pattern: '\$_POST\[.*?upload_token.*?\]'

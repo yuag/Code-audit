@@ -1,0 +1,23 @@
+rules:
+  - name: 通过查询进行 SQL 注入
+    description: 通过直接查询构造检测潜在的 SQL 注入点
+    only-regex:
+      pattern: 'SELECT .* FROM .* WHERE .*'
+
+  - name: SQL Injection via Function
+    description: Detects SQL injection vulnerabilities in function parameters.
+    function-param-regex:
+      function_pattern: '(mysqli_query|pg_query|sqlite_query)\s*\((.*?)\)'
+      param_pattern: '\$[a-zA-Z_]\w*'
+
+  - name: Custom SQL Injection Match
+    description: Custom detection for SQL injection vulnerabilities.
+    customize-match:
+      pattern: 'execute_query\s*\((.*?)\)'
+      main: custom_param_parser_function
+
+custom_param_parser_function: |
+  def custom_param_parser_function(match):
+      import re
+      params = re.findall(r'\$[a-zA-Z_]\w*', match)
+      return params

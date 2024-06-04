@@ -1,0 +1,65 @@
+rules:
+  - name: Potential RCE with system function
+    description: 检测是否存在 system 函数调用。
+    only-regex:
+      pattern: 'system\s*\('
+
+  - name: Potential RCE with passthru function
+    description: 检测是否存在 passthru 函数调用。
+    only-regex:
+      pattern: 'passthru\s*\('
+
+  - name: Potential RCE with exec function
+    description: 检测是否存在 exec 函数调用。
+    only-regex:
+      pattern: 'exec\s*\('
+
+  - name: Potential RCE with pcntl_exec function
+    description: 检测是否存在 pcntl_exec 函数调用。
+    only-regex:
+      pattern: 'pcntl_exec\s*\('
+
+  - name: Potential RCE with shell_exec function
+    description: 检测是否存在 shell_exec 函数调用。
+    only-regex:
+      pattern: 'shell_exec\s*\('
+
+  - name: Potential RCE with popen function
+    description: 检测是否存在 popen 函数调用。
+    only-regex:
+      pattern: 'popen\s*\('
+
+  - name: Potential RCE with proc_open function
+    description: 检测是否存在 proc_open 函数调用。
+    only-regex:
+      pattern: 'proc_open\s*\('
+
+  - name: Potential RCE with ob_start function
+    description: 检测是否存在 ob_start 函数调用。
+    only-regex:
+      pattern: 'ob_start\s*\('
+
+  - name: Potential RCE with expect_popen function
+    description: 检测是否存在 expect_popen 函数调用。
+    only-regex:
+      pattern: 'expect_popen\s*\('
+
+  - name: Potential RCE with mb_send_mail function
+    description: 检测是否存在 mb_send_mail 函数调用。
+    only-regex:
+      pattern: 'mb_send_mail\s*\('
+
+  - name: Potential RCE with w32api_register_function function
+    description: 检测是否存在 w32api_register_function 函数调用。
+    only-regex:
+      pattern: 'w32api_register_function\s*\('
+
+  - name: Potential RCE with w32api_invoke_function function
+    description: 检测是否存在 w32api_invoke_function 函数调用。
+    only-regex:
+      pattern: 'w32api_invoke_function\s*\('
+
+  - name: Potential RCE with ssh2_exec function
+    description: 检测是否存在 ssh2_exec 函数调用。
+    only-regex:
+      pattern: 'ssh2_exec\s*\('

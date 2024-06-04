@@ -1,0 +1,26 @@
+rules:
+  - name: XSS via Echo
+    description: Detects potential XSS vulnerabilities using echo statements.
+    only-regex:
+      pattern: 'echo\s*\(.*?\$_(GET|POST|REQUEST|COOKIE|SESSION|SERVER)\s*.*?\)'
+
+
+
+  - name: Variable Output XSS
+    description: Detects potential XSS vulnerabilities using variable output.
+    only-regex:
+      pattern: '\$\_(GET|POST|REQUEST|COOKIE|SESSION|SERVER)\[.*?\]'
+
+
+
+  - name: URL Parameter XSS
+    description: Detects potential XSS vulnerabilities in URL parameters.
+    only-regex: 
+      pattern: '\$_GET\[.*?\]'
+
+  - name: Form Input XSS
+    description: Detects potential XSS vulnerabilities in form inputs.
+    only-regex:
+      pattern: '\$_POST\[.*?\]'
+
+

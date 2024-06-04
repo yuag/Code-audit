@@ -1,0 +1,45 @@
+rules:
+  - name: Potential RCE with array_map
+    description: 检测是否存在 array_map 函数调用。
+    only-regex:
+      pattern: 'array_map\s*\('
+
+  - name: Potential RCE with create_function
+    description: 检测是否存在 create_function 函数调用。
+    only-regex:
+      pattern: 'create_function\s*\('
+
+  - name: Potential RCE with call_user_func
+    description: 检测是否存在 call_user_func 函数调用。
+    only-regex:
+      pattern: 'call_user_func\s*\('
+
+  - name: Potential RCE with call_user_func_array
+    description: 检测是否存在 call_user_func_array 函数调用。
+    only-regex:
+      pattern: 'call_user_func_array\s*\('
+
+  - name: Potential RCE with assert
+    description: 检测是否存在 assert 函数调用。
+    only-regex:
+      pattern: 'assert\s*\('
+
+  - name: Potential RCE with eval
+    description: 检测是否存在 eval 函数调用。
+    only-regex:
+      pattern: 'eval\s*\('
+
+  - name: Potential RCE with dl
+    description: 检测是否存在 dl 函数调用。
+    only-regex:
+      pattern: 'dl\s*\('
+
+  - name: Potential RCE with register_tick_function
+    description: 检测是否存在 register_tick_function 函数调用。
+    only-regex:
+      pattern: 'register_tick_function\s*\('
+
+  - name: Potential RCE with register_shutdown_function
+    description: 检测是否存在 register_shutdown_function 函数调用。
+    only-regex:
+      pattern: 'register_shutdown_function\s*\('
