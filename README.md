@@ -5,6 +5,9 @@
 
 # 软件截图
 
+gpt需要挂代理，和充值才可以使用
+<br>
+
 ![1](https://github.com/yuag/Code-audit/assets/34123873/778647f1-b151-4e60-8294-27491e2aa48f)
 <br>
 <br>
